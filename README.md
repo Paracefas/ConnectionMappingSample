@@ -12,7 +12,7 @@ SignalR aprovecha varios transportes, seleccionando automáticamente el mejor tr
 SignalR también proporciona una API simple de alto nivel para realizar RPC de servidor a cliente (llamar a funciones de JavaScript en el navegador de un cliente desde el código .NET del lado del servidor) en una aplicación ASP.NET, así como agregar enlaces útiles para la administración de la conexión , como eventos de conexión / desconexión, agrupación de conexiones, autorización; lo cual explicaremos más tarde. entiende En el administrador de Paquetes NuGet buscamos SignalR.
 
 ### Hubs
-SignalrR se sirve de lo que se llaman hubs los cuales son canales para comunicar el servidor con el cliente, es decir los métodos definidos en el Hub (cs) van a poder ser llamados desde un cliente js. A su vez nos da dos grandes conceptos poara poder utilizar Clients y Groups. Los primeros representan como su nombre indica los clientes que se conectan a nuestra app web, SignalR le asigna una connectionId a cada uno, mediante esta podes referirnos unequívocamente a cada uno de los clientes. También podemos llamar a un método del cliente para todo cliente. Finalmente los Groups son un conjunto de clientes, identificados por sus connectionIds. 
+SignalrR se sirve de lo que se llaman hubs los cuales son canales para comunicar el servidor con el cliente, es decir los métodos definidos en el Hub (cs) van a poder ser llamados desde un cliente js. A su vez nos da dos grandes conceptos para poder utilizar Clients y Groups. Los primeros representan como su nombre indica los clientes que se conectan a nuestra app web, SignalR le asigna una connectionId a cada uno, mediante esta podes referirnos unequívocamente a cada uno de los clientes. También podemos llamar a un método del cliente para todo cliente. Finalmente los Groups son un conjunto de clientes, identificados por sus connectionIds. 
 
 ## Entity 
 
@@ -34,3 +34,7 @@ La siguiente función se encuentra dentro de la función de inicio de JQuery (�
 
 *chatHub.client.received = function (message) {
             viewModel.messages.push(new Message(message.sender, message.message, message.isPrivate)); };*
+
+## Cosas a tener en cuenta en producción
+
+En este simple ejemplo los mensajes y los usuarios no son guardados en una base de datos, lo cual hace imposible la tarea de que cuando uno se conecte tenga *mensajes sin leer*, esto se soluciona facilmente con una base de datos. Tener en cuenta que SignalR no asigna al mismo cliente siempre el mismo connectionId, así que debemos almacenarlos en nuestra futura base de datos.

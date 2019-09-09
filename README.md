@@ -10,7 +10,8 @@ Utilizamos ASP.NET porque es un marco de aplicaciones web del lado del servidor 
 
 SignalR aprovecha varios transportes, seleccionando automáticamente el mejor transporte disponible del cliente y del servidor. SignalR aprovecha WebSocket, que permite la comunicación bidireccional entre el navegador y el servidor. SignalR usará WebSockets cuando esté disponible, en caso contrario recurrirá a otras técnicas y tecnologías, mientras que el código de la aplicación sigue siendo el mismo. 
 SignalR también proporciona una API simple de alto nivel para realizar RPC de servidor a cliente (llamar a funciones de JavaScript en el navegador de un cliente desde el código .NET del lado del servidor) en una aplicación ASP.NET, así como agregar enlaces útiles para la administración de la conexión , como eventos de conexión / desconexión, agrupación de conexiones, autorización; lo cual explicaremos más tarde. entiende En el administrador de Paquetes NuGet buscamos SignalR.
-###Hubs
+
+### Hubs
 SignalrR se sirve de lo que se llaman hubs los cuales son canales para comunicar el servidor con el cliente, es decir los métodos definidos en el Hub (cs) van a poder ser llamados desde un cliente js. A su vez nos da dos grandes conceptos poara poder utilizar Clients y Groups. Los primeros representan como su nombre indica los clientes que se conectan a nuestra app web, SignalR le asigna una connectionId a cada uno, mediante esta podes referirnos unequívocamente a cada uno de los clientes. También podemos llamar a un método del cliente para todo cliente. Finalmente los Groups son un conjunto de clientes, identificados por sus connectionIds. 
 
 ## Entity 
